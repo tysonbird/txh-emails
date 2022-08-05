@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+    <meta charset="utf-8"> <!-- utf-8 works for most cases -->
+    <meta name="viewport" content="width=device-width"> <!-- Forcing initial-scale shouldn't be necessary -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Use the latest (edge) version of IE rendering engine -->
+    <meta name="x-apple-disable-message-reformatting">  <!-- Disable auto-scale in iOS 10 Mail entirely -->
+    <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no"> <!-- Tell iOS not to automatically link certain text strings. -->
+    <meta name="color-scheme" content="light">
+    <meta name="supported-color-schemes" content="light">
+    <title></title> <!-- The title tag shows in email notifications, like Android 4.4. -->
+
+    <!-- What it does: Makes background images in 72ppi Outlook render at correct size. -->
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+
+    <!-- CSS Reset : BEGIN -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+        /* What it does: Tells the email client that only light styles are provided but the client can transform them to dark. A duplicate of meta color-scheme meta tag above. */
+        :root {
+          color-scheme: light;
+          supported-color-schemes: light;
+        }
+
+        /* What it does: Remove spaces around the email design added by some email clients. */
+        /* Beware: It can remove the padding / margin and add a background color to the compose a reply window. */
+        html,
+        body {
+            margin: 0 auto !important;
+            padding: 0 !important;
+            height: 100% !important;
+            width: 100% !important;
+        }
+
+        /* What it does: Stops email clients resizing small text. */
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* What it does: Centers email on Android 4.4 */
+        div[style*="margin: 16px 0"] {
+            margin: 0 !important;
+        }
+        /* What it does: forces Samsung Android mail clients to use the entire viewport */
+        #MessageViewBody, #MessageWebViewDiv{
+            width: 100% !important;
+        }
+
+        /* What it does: Stops Outlook from adding extra spacing to tables. */
+        table,
+        td {
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+
+        /* What it does: Fixes webkit padding issue. */
+        table {
+            border-spacing: 0 !important;
+            border-collapse: collapse !important;
+            table-layout: fixed !important;
+            margin: 0 auto !important;
+        }
+
+        /* What it does: Uses a better rendering method when resizing images in IE. */
+        img {
+            -ms-interpolation-mode:bicubic;
+        }
+
+        /* What it does: Prevents Windows 10 Mail from underlining links despite inline CSS. Styles for underlined links should be inline. */
+        a {
+            text-decoration: none;
+            color: inherit !important;
+        }
+
+        /* What it does: A work-around for email clients meddling in triggered links. */
+        a[x-apple-data-detectors],  /* iOS */
+        .unstyle-auto-detected-links a,
+        .aBn {
+            border-bottom: 0 !important;
+            cursor: default !important;
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        /* What it does: Prevents Gmail from changing the text color in conversation threads. */
+        .im {
+            color: inherit !important;
+        }
+
+        /* What it does: Prevents Gmail from displaying a download button on large, non-linked images. */
+        .a6S {
+            display: none !important;
+            opacity: 0.01 !important;
+        }
+        /* If the above doesn't work, add a .g-img class to any image in question. */
+        img.g-img + div {
+            display: none !important;
+        }
+
+        span.MsoHyperlink {
+            mso-style-priority:99;
+            color:inherit;
+        }
+
+        span.MsoHyperlinkFollowed {
+            mso-style-priority:99;
+            color: inherit;
+        }
+
+        /* Create one of these media queries for each additional viewport size you'd like to fix */
+
+        /* iPhone 4, 4S, 5, 5S, 5C, and 5SE */
+        @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
+            u ~ div .email-container {
+                min-width: 320px !important;
+            }
+        }
+        /* iPhone 6, 6S, 7, 8, and X */
+        @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
+            u ~ div .email-container {
+                min-width: 375px !important;
+            }
+        }
+        /* iPhone 6+, 7+, and 8+ */
+        @media only screen and (min-device-width: 414px) {
+            u ~ div .email-container {
+                min-width: 414px !important;
+            }
+        }
+
+    </style>
+    <!-- CSS Reset : END -->
+
+    <!-- Progressive Enhancements : BEGIN -->
+    <style>
+
+	    /* What it does: Hover styles for buttons */
+	    .button-td,
+	    .button-a {
+	        transition: all 100ms ease-in;
+	    }
+	    .button-td-primary:hover,
+	    .button-a-primary:hover {
+	        background: #555555 !important;
+	        border-color: #555555 !important;
+	    }
+
+	    /* Media Queries */
+	    @media screen and (max-width: 480px) {
+
+	        /* What it does: Forces table cells into full-width rows. */
+	        .stack-column,
+	        .stack-column-center {
+	            display: block !important;
+	            width: 100% !important;
+	            max-width: 100% !important;
+	            direction: ltr !important;
+	        }
+	        /* And center justify these ones. */
+	        .stack-column-center {
+	            text-align: center !important;
+	        }
+
+	        /* What it does: Generic utility class for centering. Useful for images, buttons, and nested tables. */
+	        .center-on-narrow {
+	            text-align: center !important;
+	            display: block !important;
+	            margin-left: auto !important;
+	            margin-right: auto !important;
+	            float: none !important;
+	        }
+	        table.center-on-narrow {
+	            display: inline-block !important;
+	        }
+
+            /* What it does: moves caption/credit to center for those who support it */
+            .caption-credit {
+                text-align: center !important;
+            }
+	    }
+
+    </style>
+    <!-- Progressive Enhancements : END -->
+
+</head>
+<!--
+	The email background color (#222222) is defined in three places:
+	1. body tag: for most email clients
+	2. center tag: for Gmail and Inbox mobile apps and web versions of Gmail, GSuite, Inbox, Yahoo, AOL, Libero, Comcast, freenet, Mail.ru, Orange.fr
+	3. mso conditional: For Windows 10 Mail
+    ## TYSON: make sure to change to white preflight
+-->
+<body width="100%" style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #ffffff;">
+  <center role="article" aria-roledescription="email" lang="en" style="width: 100%; background-color: #ffffff;">
+    <!--[if mso | IE]>
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #ffffff;">
+    <tr>
+    <td>
+    <![endif]-->
+
+        <!-- Create white space after the desired preview text so email clients don’t pull other distracting text into the inbox preview. Extend as necessary. -->
+        <!-- Preview Text Spacing Hack : BEGIN -->
+        <div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">Subscribe now to get 12 issues for only $17.
+	        &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+        </div>
+        <!-- Preview Text Spacing Hack : END -->
+
+        <!--
+            Set the email width. Defined in two places:
+            1. max-width for all clients except Desktop Windows Outlook, allowing the email to squish on narrow but never go wider than 680px.
+            2. MSO tags for Desktop Windows Outlook enforce a 680px width.
+            Note: The Fluid and Responsive templates have a different width (600px). The hybrid grid is more "fragile", and I've found that 680px is a good width. Change with caution.
+        -->
+        <div style="max-width: 680px; margin: 0 auto;" class="email-container">
+            <!--[if mso]>
+            <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="680">
+            <tr>
+            <td>
+            <![endif]-->
+
+	        <!-- Email Body : BEGIN -->
+	        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
+		        <!-- Email Header : BEGIN -->
+                <!-- Preheader? -->
+	            <!-- <tr>
+	                <td style="padding: 20px 0px 0px 0px;">
+                        <span style="font-family:'Trebuchet MS', sans-serif; color:#909090 !important; font-size:14px !important; font-weight: 300 !important;">Subscribe now to get 12 issues for only $17.</span>
+
+	                </td>
+	            </tr> -->
+	            <tr>
+	                <td style="padding: 20px 0px 0px 0px;">
+                        <span style="font-family:'Trebuchet MS', sans-serif; color:#909090 !important; font-size:14px !important; font-weight: 300 !important;">No images? <a href="https://texashighways.com" style="text-decoration: underline;">Click here</a>.</span>
+
+	                </td>
+	            </tr>
+		        <!-- Email Header : END -->
+
+	            <!-- Magazine Email Logo : BEGIN -->
+                <tr>
+                    <td style="background-color: #ffffff;" valign="middle" align="center">
+                        <a href="https://texashighways.com"><img src="https://texashighways.com/wp-content/uploads/2022/04/texas-highways-logo-white.jpg" width="300" height="105" alt="Texas Highways Magazine" border="0" style="width: 300px; max-width: 300px; height: auto; background: #ffffff; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555; margin: 20px auto 30px auto; display: block;text-align:center" class="g-img"></a>
+                    </td>
+                </tr>
+                <!-- Magazine Email Logo : END -->
+
+                <!-- Hero Image, Flush : BEGIN -->
+                <repeater>
+                <tr>
+                    <td style="background-color: #ffffff;">
+                        <a href="https://subscription.texashighways.com/ecom/thm/app/live/subscriptions?org=THM&publ=TH&key_code=3X19EML&type=S&gift_key=J5FXGFT"><img src="https://texashighways.com/wp-content/uploads/2022/07/tx-hwys-sub-banner-july22-direct-mail.jpg" width="680" height="680" alt="12 issues for $16 - Limited Time Offer" border="0" style="width: 100%; max-width: 680px; height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555; margin: auto; display: block;" class="g-img"></a>
+                    </td>
+                </tr>
+                <!-- Hero Image, Flush : END -->
+
+                <!-- 1 Column Text + Button : BEGIN -->
+                <tr>
+                    <td style="background-color: #ffffff;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                            <tr>
+                                <td style="padding: 20px; font-size: 15px; line-height: 20px; color: #000000;">
+                                    <h1 style="margin: 0 0 10px;line-height: 30px; color: #333333; font-weight: bold;font-family:'Open Sans','Trebuchet MS', 'Arial', sans-serif;font-size:16px !important;text-transform:uppercase;text-align:center">The authority on Texas travel since 1974</h1>                                    
+                                    <div style="font-family:'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;line-height:1.5"><p style="margin: 0 0 10px;">As the state&rsquo;s official travel magazine, <em>Texas Highways</em> provides readers with a curated guide to the state&rsquo;s cities, small towns, hidden gems, and natural wonders. From the comfort of your living room or at the wheel of your car, <em>Texas Highways</em> is your trusted guide for travel in Texas.</p>
+                                    <p>Subscribe today to receive <b>12 issues for $16</b>, and as a thank you for your order, you'll receive our Texas Travel Package featuring a 200-page Texas State Travel Guide, a Travel Map, and a <em>Texas Highways</em> Events Calendar.</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0 20px 20px;">
+                                    <!-- Button : BEGIN -->
+                                    <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin: auto;">
+                                        <tr>
+                                            <div class="btn btn--flat btn--large" style="Margin-bottom: 20px;text-align: center;">
+                                                <!--[if !mso]--><a style="border-radius: 4px;display: inline-block;font-size: 14px;font-weight: bold;line-height: 24px;padding: 12px 24px;text-align: center;text-decoration: none !important;transition: opacity 0.1s ease-in;color: #f5f7fa !important;background-color: #5a729b;font-family: Trebuchet MS, Lucida Grande, Lucida Sans Unicode, sans-serif;" href="https://subscription.texashighways.com/ecom/thm/app/live/subscriptions?org=THM&publ=TH&key_code=3X19EML&type=S&gift_key=J5FXGFT" target="_blank">SUBSCRIBE</a><!--[endif]-->
+                                              <!--[if mso]><p style="line-height:0;margin:0;">&nbsp;</p><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="https://subscription.texashighways.com/ecom/thm/app/live/subscriptions?org=THM&publ=TH&key_code=3X19EML&type=S&gift_key=J5FXGFT" style="width:165px" arcsize="6%" fillcolor="#5a729b" stroke="f"><v:textbox style="mso-fit-shape-to-text:t" inset="0px,11px,0px,11px"><center style="font-size:14px;line-height:24px;color:#F5F7FA;font-family:Trebuchet MS,Lucida Grande,Lucida Sans Unicode,sans-serif;font-weight:bold;mso-line-height-rule:exactly;mso-text-raise:4px">SUBSCRIBE</center></v:textbox></v:roundrect><![endif]--></div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- Button : END -->
+                                </td>
+                            </tr>
+
+                        </table>
+                    </td>
+                </tr>
+                </repeater>
+                <!-- 1 Column Text + Button : END -->
+
+            <!-- TXH Footer START -->
+            <tr style="border-top:.5px solid #000000;">
+                <td style="background-color: #ffffff;">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                        <tr>
+                            <td style="font-family: sans-serif; font-size: 14px; color: #555555;text-align:center;padding-top:25px;">
+                                <p style="font-family:'Trebuchet MS', sans-serif;font-size:13px !important;line-height:1.2;margin:8px;color:#000"><a href="https://texashighways.com/" style="color:inherit !important;text-decoration:underline;"><strong>Texas Highways Magazine</strong></a></p>
+                                <p style="font-family:'Trebuchet MS', sans-serif;font-size:13px !important;line-height:1.2; margin:8px;">6230 E. Stassney Lane</p>
+                                <p style="font-family:'Trebuchet MS', sans-serif;font-size:13px !important;line-height:1.2; margin:8px;">Austin, Texas 78744</p>
+                                <a href="https://texashighways.com/?utm_source=newsletter&utm_medium=true-texas&utm_campaign=branding">
+                                <img style="width:60px;margin:25px auto 10px auto" height="60" width="60" src="https://texashighways.com/wp-content/uploads/2022/04/truetexas.png"></a>
+                                <p style="font-family:'Trebuchet MS', sans-serif;font-size:11px !important;line-height:1.4; margin:8px auto;width:80%">You are receiving this message from Texas Highways magazine because you requested it or because you have contacted Texas Highways magazine and provided your email address. To ensure our message always reaches your inbox, please add us to your address book.</p>
+                                <a href="https://txdot.gov"><img width="200" height="40" style="width:200px;margin:25px auto 10px auto" src="https://texashighways.com/wp-content/uploads/2022/04/txdot.png"></a>
+                                <p style="font-family:'Trebuchet MS', sans-serif;font-size:11px !important;line-height:1.4; margin:8px auto;width:80%">Published monthly by the Texas Department of Transportation’s Travel Information Division, Texas Highways, the official travel magazine of Texas, encourages travel to and within the Lone Star State and tells the Texas story to readers around the world.</p>
+                                <p style="font-family:'Trebuchet MS', sans-serif;font-size:13px !important;line-height:1.2;margin:20px;color:#000"><a href="https://texashighways.com/privacy-policy/" style="color:inherit !important;text-decoration:underline;">Privacy Policy</a> | <a href="https://texashighways.com/advertise/" style="color:inherit !important;text-decoration:underline;">Advertise with Texas Highways</a></p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        <!-- TXH Footer END -->
+
+        <!-- Unsub and socials START -->
+        <tr>
+            <td style="background-color: #ffffff;">
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tr>
+                        <td style="font-family: sans-serif; font-size: 14px; color: #555555;text-align:center">
+                            <hr style="border-bottom:0px;border-color: #eeeeee;background-color:#eeeeee;color:#eeeeee;width:100%;max-width:680px">
+                            <p style="font-family:'Trebuchet MS', sans-serif;font-size:13px !important;line-height:1.2;margin:20px;color:#000"><span style="color:inherit !important;text-decoration:underline;"><span style="color:inherit !important;text-decoration:underline;"><unsubscribe>Unsubscribe</unsubscribe></span></p>
+                            <!-- <div style="margin-bottom:50px;"><a href="https://facebook.com/TexasHighways"><img width="30" height="30" style="width:30px; margin-right:10px;" src="images/social-fb.jpg"></a><a href="https://instagram.com/TexasHighways"><img width="30" height="30" style="width:30px; margin-right:10px;" src="images/social-ig.jpg"></a><a href="https://twitter.com/TexasHighways"><img width="30" height="30" style="width:30px; margin-right:10px;" src="images/social-twitter.jpg"></a><a href="https://www.youtube.com/c/texashighways"><img width="30" height="30" style="width:30px; margin-right:10px;" src="images/social-yt.jpg"></a><a href="https://www.pinterest.com/texashighways/"><img width="30" height="30" style="width:30px; margin-right:10px;" src="images/social-pinterest.jpg"></a></div> -->
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    <!-- TXH Footer END -->
+
+    <!--[if mso | IE]>
+    </td>
+    </tr>
+    </table>
+    <![endif]-->
+    </center>
+</body>
+</html>
